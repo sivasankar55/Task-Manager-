@@ -12,16 +12,19 @@ This project is a full-stack, scalable web application built to demonstrate secu
  Client-side form handling and validation.
  Full Logout Flow.
 
+
  Backend & Security
+ 
 Lightweight Node.js/Express backend.
-JWT-based Authentication** (Signup/Login) for stateless security.
+JWT-based Authentication (Signup/Login) for stateless security.
 Password Hashing using BcryptJS.
-Dedicated APIs for **User Profile** fetching and updating.
-CRUD Operations** on a sample entity (Tasks).
+Dedicated APIs for User Profile fetching and updating.
+CRUD Operations on a sample entity (Tasks).
 Connected to MongoDB using Mongoose.
-Server-side **Validation and Error Handling** (`express-validator`).
+Server-side Validation and Error Handling** (`express-validator`).
 
  Dashboard Functionality
+ 
 Display and update of User Profile.
 Full CRUD functionality for managing personal tasks.
 Search and Filter UI for tasks (by title and status).
