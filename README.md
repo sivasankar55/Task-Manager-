@@ -32,7 +32,7 @@ Manage their own profiles.
     │   ├── utils/         Helper functions (ProtectedRoute)
     │   └── App.js         Main Router
 
-     Features
+     
  Authentication
 
 Secure login and registration using JWT.
