@@ -1,113 +1,85 @@
-# Scalable Web App: Authentication and Task Management Dashboard
+Scalable Web App: Authentication & Task Management Dashboard
 
-This project is a full-stack, scalable web application built to demonstrate secure user authentication (JWT-based) and basic CRUD operations on a protected dashboard.  
+This project is a full-stack, scalable web application built to demonstrate secure JWT-based authentication, a protected task management dashboard, and complete CRUD operations.
 
-  Core Features Implemented
+ Overview
 
- Frontend
+This app enables users to:
 
- Built with React.js for a dynamic UI.
- Responsive Design using TailwindCSS for rapid styling.
- Protected Routes (Dashboard, Profile) requiring valid JWT.
- Client-side form handling and validation.
- Full Logout Flow.
+Register and log in securely using JWT.
 
+Access protected routes (Dashboard, Profile).
 
- Backend & Security
- 
-Lightweight Node.js/Express backend.
-JWT-based Authentication (Signup/Login) for stateless security.
-Password Hashing using BcryptJS.
-Dedicated APIs for User Profile fetching and updating.
-CRUD Operations on a sample entity (Tasks).
-Connected to MongoDB using Mongoose.
-Server-side Validation and Error Handling** (`express-validator`).
+Create, Read, Update, and Delete personal tasks.
 
- Dashboard Functionality
- 
-Display and update of User Profile.
-Full CRUD functionality for managing personal tasks.
-Search and Filter UI for tasks (by title and status).
+Manage their own profiles.
 
+ a clean, responsive UI.
 
- Technology Stack
+ .
+├── backend/               Node/Express API
+│   ├── config/            Database connection, environment setup
+│   ├── models/            Mongoose Schemas (User, Task)
+│   ├── middleware/        JWT Authentication Middleware
+│   ├── routes/            API Endpoints (auth.js, tasks.js)
+│   └── server.js          Express app entry point
+│
+└── frontend/              React Application
+    ├── src/
+    │   ├── components/    Reusable UI components (Navbar, TaskForm)
+    │   ├── pages/         Main views (Login, Dashboard, Profile)
+    │   ├── services/      Axios API setup with JWT Interceptor
+    │   ├── utils/         Helper functions (ProtectedRoute)
+    │   └── App.js         Main Router
 
-| Category | Technology | Purpose |
-| Frontend | `React.js` | Component-based UI development |
-| Styling | `TailwindCSS` | Utility-first CSS framework |
-| Routing | `React Router DOM` | Client-side routing |
-| HTTP Client | `Axios` | Interceptor-based API communication |
-| Backend | `Node.js / Express` | Server runtime and web framework |
-| Database | `MongoDB` | NoSQL data store |
-| ORM | `Mongoose` | MongoDB object modeling |
-| Auth | `JWT (JSON Web Tokens)` | Stateless authentication |
-| Security | `BcryptJS` | Password hashing |
+     Features
+ Authentication
 
- Project Structure
+Secure login and registration using JWT.
 
-The project is split into two main directories (`backend` and `frontend`) for clear separation of concerns.
-.
-├── backend/  Node/Express API
-│ ├── config/  DB connection, .env setup
-│ ├── models/  Mongoose Schemas (User, Task)
-│ ├── middleware/  JWT Authentication Middleware (auth.js)
-│ ├── routes/  API Endpoints (auth.js, tasks.js)
-│ └── server.js  Express app entry point
-└── frontend/  React Application
-├── src/
-│ ├── components/ Reusable UI parts (Navbar, TaskForm)
-│ ├── pages/  Main views (Login, Dashboard, Profile)
-│ ├── services/  Axios API setup with JWT Interceptor
-│ ├── utils/  Helper functions (ProtectedRoute)
-│ └── App.js  Main Router
+Password hashing with BcryptJS.
+
+Protected routes (Dashboard, Profile) accessible only with valid tokens.
+
+Full logout flow with token removal.
+
+Task Management Dashboard
+
+Full CRUD (Create, Read, Update, Delete) functionality for tasks.
+
+Search and Filter by title or status.
+
+Responsive UI for all devices.
+
+ User Profile
+
+Fetch and display logged-in user information.
+
+Update name and email directly from the dashboard.
 
 
----
+ Clone the Repository
 
-## ⚙️ Setup and Installation
-
-### Prerequisites
-
-*   Node.js (v18+) and npm
-*   MongoDB instance (local or Atlas)
-
-### 1. Clone the Repository
-
-```bash
 git clone https://github.com/your-username/Task-Manager-app.git
-cd Task-Manager
+cd Task-Manager-app
 
 Backend Setup
-
 cd backend
 npm install
 
-Configuration:
-Create a file named .env in the backend directory based on the provided .env.example:
-
+Configuration
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/scalable_app_db   Replace with your URI
-JWT_SECRET=YOUR_VERY_STRONG_SECRET_KEY               Use a strong, random key
+MONGO_URI=mongodb://127.0.0.1:27017/scalable_app_db    Replace with your MongoDB URI
+JWT_SECRET=YOUR_VERY_STRONG_SECRET_KEY                Use a secure random key
 
-Run the Backend:
-npm run dev  Starts server with nodemon for live reload
+Run the Backend
+npm run dev    Starts server with nodemon
  or
 npm start
 
- Frontend Setup
+Frontend Setup
 cd ../frontend
 npm install
 
 Run the Frontend
 npm start
-
-API Endpoints
-
-POST	/api/auth/register	Register a new user.
-POST	/api/auth/login	Log in and receive JWT.	
-GET	/api/auth/me	Fetch logged-in user profile.	
-PUT	/api/auth/profile	Update user profile (name, email).	
-POST	/api/tasks	Create a new task.
-GET	/api/tasks?search=&status=	Get user's tasks (with filtering/search).
-PUT	/api/tasks/:id	Update a specific task.	
-DELETE	/api/tasks/:id	Delete a specific task.	
