@@ -60,7 +60,7 @@ Update name and email directly from the dashboard.
 
  Clone the Repository
 
-git clone https://github.com/your-username/Task-Manager-app.git
+git clone https://github.com/sivasankar55/Task-Manager-.git
 cd Task-Manager-app
 
 Backend Setup
